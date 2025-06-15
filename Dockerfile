@@ -15,5 +15,7 @@ RUN apt-get update \
     && apt-get dist-upgrade -y \
     && apt-get install google-chrome-stable -y
 
+RUN npx playwright install --with-deps
+
 ENV CHROME_BIN=/usr/bin/google-chrome
 

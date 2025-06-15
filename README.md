@@ -1,6 +1,8 @@
 # Node and Chrome headless Docker image
 
-This docker image is based on Debian and includes Node and Chrome. It is intended to be used to test Angular applications using Karma in a CI that uses Docker Compose.
+This docker image is based on Debian and includes Node and Chrome. It is intended to be used to test Angular applications in a CI that uses Docker Compose.
+
+It supports runing unit tests with Karma and e2e tests with Playwright.
 
 # Build
 
@@ -89,5 +91,8 @@ Bring the containers up and run tests:
 
 ```
 docker compose up -d
+```
+
+Running tests depends on the Angualr application.
 
 
