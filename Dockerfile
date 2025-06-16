@@ -13,9 +13,14 @@ RUN  sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/linux_signing_key.
 
 RUN apt-get update \
     && apt-get dist-upgrade -y \
-    && apt-get install google-chrome-stable -y
+    && apt-get install google-chrome-stable -y\
+    && rm -rf /var/lib/apt/lists/*\
+    && npx playwright install-deps
 
-RUN npx playwright install --with-deps
+# Switch to node user and install Playwright browsers
+USER node
+RUN npx playwright install
 
+# Set environment variable for Karma
 ENV CHROME_BIN=/usr/bin/google-chrome
 
