@@ -8,14 +8,15 @@ It supports runing unit tests with Karma and e2e tests with Playwright.
 
 Define what Debian version and Node version to use and then build the image. Check available combinations in DockerHub. For example, to look for combinations for Debian Bullseye go to https://hub.docker.com/_/node/tags?page=&page_size=&ordering=&name=bullseye.
 
-Example using Debian Bullseye and Node 22.
+Example using Debian Bookworm and Node 22.
 
 
 ```
-export NODE_VERSION=22.7
-export OS_VERSION=bullseye
+export NODE_VERSION=22.21.1
+export OS_VERSION=bookworm
 
-docker build . --build-arg NODE_VERSION=$NODE_VERSION --build-arg OS_VERSION=$OS_VERSION --tag node:node$NODE_VERSION-$OS_VERSION
+docker build . --build-arg NODE_VERSION=$NODE_VERSION --build-arg OS_VERSION=$OS_VERSION --tag metadrop/node-chrome:$OS_VERSION-node-$NODE_VERSION
+
 ```
 
 Node releases can be checked here: https://nodejs.org/en/about/previous-releases.
